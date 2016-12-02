@@ -36,8 +36,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			flag = true;
 		} else {
 			String sessionId = request.getSession().getId();
+			log.debug("sessionId : " + sessionId);
 			LoginInfo info = AppContext.getInstance().getLoginInfo(sessionId);
 			if(info != null) {
+				log.debug("准备更换时间~");
 				AppContext.getInstance().updateExpireTime(sessionId);
 				AppContext.getInstance().setContext(info);
 				flag = true;

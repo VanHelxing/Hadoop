@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.hadoop.core.LoginInfo;
 import com.hadoop.util.MemcachedUtils;
 
 public class MemCache implements Cache {
+	
+	private static Logger log = Logger.getLogger(MemCache.class);
 
 	/**
 	 * 获得登录信息
@@ -33,9 +37,12 @@ public class MemCache implements Cache {
 	 */
 	@Override
 	public void updateExpireTime(String key) {
-		LoginInfo info = getLoginInfo(LOGIN_KEY + key);
+		log.debug("进入更新方法~");
+		LoginInfo info = getLoginInfo(key);
+		log.debug(info == null);
 		long ms = getExpireTime();
 		info.setExpireTime(new Date().getTime() + ms);
+		log.debug("LOGIN_KEY + key : " + LOGIN_KEY + key + "  info :" + info.getUserName() + " date :" + new Date(ms) );
 		MemcachedUtils.replace(LOGIN_KEY + key, info, new Date(ms));
 	}
 

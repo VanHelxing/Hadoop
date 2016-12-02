@@ -3,6 +3,8 @@ package com.hadoop.core;
 import java.util.Date;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.hadoop.Cache.Cache;
 import com.hadoop.Cache.LocalCache;
 import com.hadoop.Cache.MemCache;
@@ -16,6 +18,8 @@ public class AppContext {
 	private final static Cache cache;
 	
 	private final static AppContext instance = new AppContext();
+	
+	private static Logger log = Logger.getLogger(AppContext.class);
 	
 	static {
 		//cache = new LocalCache();
@@ -33,6 +37,7 @@ public class AppContext {
 	}
 	
 	public void put(String key, LoginInfo info) {
+		log.debug("key : " + key + " info " + info.getUserName());
 		cache.put(key, info);
 	}
 	
@@ -41,6 +46,7 @@ public class AppContext {
 	}
 	
 	public void updateExpireTime(String key) {
+		log.debug(key);
 		cache.updateExpireTime(key);
 	}
 	
