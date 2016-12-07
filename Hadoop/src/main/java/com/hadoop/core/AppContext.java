@@ -22,8 +22,8 @@ public class AppContext {
 	private static Logger log = Logger.getLogger(AppContext.class);
 	
 	static {
-		//cache = new LocalCache();
-		cache = new MemCache();
+		cache = new LocalCache();
+		//cache = new MemCache();
 	}
 	
 	private AppContext() {}

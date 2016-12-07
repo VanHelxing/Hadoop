@@ -22,9 +22,8 @@
 	<!-- 启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射 -->
 	<mvc:annotation-driven/>
 	<!-- 自动扫描 -->
-	<context:component-scan base-package="com.hadoop.dao,com.hadoop.service" />
-	<aop:config proxy-target-class="true"/>
-	
+	<context:component-scan base-package="com.hadoop.dao, com.hadoop.service"/>
+	 
 	<!-- 引入配置文件 -->
 	<!--  
 	<bean id="propertyConfigurer"
@@ -35,7 +34,7 @@
 	<!-- 引入多个配置文件 -->
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
-			<list>
+			<list> 
 				<value>classpath:config/jdbc.properties</value>
 				<value>classpath:config/memcached.properties</value>
 			</list>
@@ -85,6 +84,7 @@
 	
 	
 	<!-- 客户端：java_memcached-release_2.6.6 -->
+	<!--  
 	<bean id="memcachedPool" class="com.danga.MemCached.SockIOPool" factory-method="getInstance"
 		init-method="initialize" destroy-method="shutDown">
 		<constructor-arg>
@@ -108,17 +108,6 @@
 			<value>memcachedPool</value>
 		</constructor-arg>
 	</bean>
-	
-	<!-- 增加缓存管理 -->
-	<bean id="cacheManager" class="com.cdsmartlink.framework.cache.memcached.MemcachedCacheManager">
-		<property name="memcachedClient" ref="memcachedClient"/>
-		<!-- 配置缓存时间 -->
-		<property name="configMap">
-			<map>
-				<!-- key缓存对象名称    value缓存过期时间 -->
-				<entry key="systemCache" value="1800"/>
-			</map>
-		</property>
-	</bean>
+	-->
 
 </beans>

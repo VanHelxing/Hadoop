@@ -69,7 +69,7 @@
 	
 	<error-page>
 		<error-code>404</error-code>
-		<location>/imgs/</location>
+		<location>/imgs/404.png</location>
 	</error-page>
 
 </web-app>

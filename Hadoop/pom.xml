@@ -191,6 +191,20 @@
 		<version>1.9.13</version>
 	</dependency>
 	
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-core</artifactId>
+	    <version>2.2.3</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.2.3</version>
+	</dependency>
+	
 	
 	<!-- 上传组件包 -->
 	<dependency>
@@ -209,18 +223,20 @@
 		<version>1.9</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/aspectj/aspectjrt -->
+	<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
 	<dependency>
-	    <groupId>aspectj</groupId>
+	    <groupId>org.aspectj</groupId>
 	    <artifactId>aspectjrt</artifactId>
-	    <version>1.6.12</version>
+	    <version>1.6.8</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/aspectj/aspectjweaver -->
+
+	<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
 	<dependency>
-	    <groupId>aspectj</groupId>
+	    <groupId>org.aspectj</groupId>
 	    <artifactId>aspectjweaver</artifactId>
-	    <version>1.6.12</version>
+	    <version>1.6.8</version>
 	</dependency>
+
 	
 	<!-- MemCached -->
 	<dependency>
@@ -228,7 +244,21 @@
 		<artifactId>memcached</artifactId>
 		<version>2.6.6</version>
 	</dependency>
-
+	
+	<!-- https://mvnrepository.com/artifact/com.googlecode.xmemcached/xmemcached -->
+	<dependency>
+	    <groupId>com.googlecode.xmemcached</groupId>
+	    <artifactId>xmemcached</artifactId>
+	    <version>2.0.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.google.code.simple-spring-memcached/xmemcached-provider -->
+	<dependency>
+	    <groupId>com.google.code.simple-spring-memcached</groupId>
+	    <artifactId>xmemcached-provider</artifactId>
+	    <version>3.5.0</version>
+	</dependency>
+	
   </dependencies>
   
   
