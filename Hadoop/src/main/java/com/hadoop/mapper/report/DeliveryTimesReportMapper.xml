@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hadoop.dao.report.DeliveryTimesReportIDao">
+	<resultMap type="com.hadoop.po.report.DeliveryTimesReport" id="reportResult">
+		<result column="id" property="id"/>
+		<result column="s_id" property="sId"/>
+		<result column="org_id" property="orgId"/>
+		<result column="org_name" property="orgName"/>
+		<result column="wh_id" property="whId"/>
+		<result column="wh_name" property="whName"/>
+		<result column="s_wh_id" property="sWhId"/>
+		<result column="s_wh_name" property="sWhName"/>
+		<result column="sale_org_id" property="saleOrgId"/>
+		<result column="sale_org_name" property="saleOrgName"/>
+		<result column="delivery_type" property="deliveryType"/>
+		<result column="cus_id" property="cusId"/>
+		<result column="prn_cnt" property="prnCnt"/>
+		<result column="delivery_date" property="deliveryDate"/>
+		<result column="delivery_batch" property="deliveryBatch"/>
+		<result column="delivery_times" property="deliveryTimes"/>
+		<result column="status" property="status"/>
+	</resultMap>
+
+	<!-- 通过送货单号查询送回次数信息 -->
+	<select id="getReport" parameterType="String" resultMap="reportResult">
+		select <include refid="select_fields"/>
+		  from delivery_head h
+		<where>
+			h.id = #{id}
+		</where>
+	</select>
+	
+	<!-- 通过条件查询送回次数信息 -->
+	<select id="getReports" parameterType="map" resultMap="reportResult"> 
+		select <include refid="select_fields"/>
+		  from delivery_head h
+		<where>
+			${sqlWhere}
+		</where>
+	</select>
+	
+	
+	
+	<sql id="select_fields">
+		h.id id,
+	    h.s_id s_id,
+	    h.org_id org_id,
+	    (select b.br_name from branch b where b.br_id = h.org_id) org_name,
+	    h.wh_id wh_id,
+	    (select w.wh_name from warehouse w where w.wh_id = h.wh_id) wh_name,
+	    h.s_wh_id s_wh_id,
+	    (select w.wh_name from warehouse w where w.wh_id = h.s_wh_id) s_wh_name,
+	    h.sale_org_id sale_org_id,
+	    (select b.br_name from branch b where b.br_id = h.sale_org_id) sale_org_name,
+	    h.delivery_type delivery_type,
+	    h.cus_id cus_id,
+	    h.prn_cnt prn_cnt,
+	    h.delivery_date delivery_date,
+	    h.delivery_batch delivery_batch,
+	    h.delivery_times delivery_times,
+	    h.status status
+	</sql>
+</mapper>

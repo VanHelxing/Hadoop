@@ -32,7 +32,9 @@ public class TestSMMemcached {
 	@Test
 	public void test() {
 		try {
-			System.out.println(testDao2.getUserById(21) + "---------------");
+			//System.out.println(testDao2.getUserById(21) + "---------------");
+			
+			System.out.println(testDao2.getList("xiaoshis"));
 		} catch (Exception e) {
 		}
 	}

@@ -18,4 +18,5 @@ public class TestDao2 {
 		System.out.println("没有缓存命中~");
 		return author;
 	}
+	
 }
