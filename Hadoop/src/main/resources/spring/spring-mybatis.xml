@@ -6,6 +6,7 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:task="http://www.springframework.org/schema/task" 
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:cache="http://www.springframework.org/schema/cache"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context 
@@ -15,6 +16,8 @@
 		http://www.springframework.org/schema/task/spring-task-3.0.xsd 
 		http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/cache 
+     	http://www.springframework.org/schema/cache/spring-cache.xsd
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	
@@ -22,7 +25,22 @@
 	<!-- 启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射 -->
 	<mvc:annotation-driven/>
 	<!-- 自动扫描 -->
-	<context:component-scan base-package="com.hadoop.dao, com.hadoop.service"/>
+	<context:component-scan base-package="com.hadoop.dao, com.hadoop.service, com.hadoop.memcache"/>
+		
+	<!-- 启用 Aspectj AOP -->
+	<!--  
+	<aop:aspectj-autoproxy/>
+	-->
+	
+	<!-- 引入memcache注解, 使用的是 simple-spring-memcached 注解 (需要开启Aspectj AOP)-->
+	<!-- 
+	<import resource="classpath:memcache/simple-spring-memcached.xml"/>
+	 -->
+	 
+	<!-- 启用缓存 -->
+	<cache:annotation-driven/>
+	<!-- memcache使用spring自带的注解 -->
+	<import resource="classpath:spring/spring-cache.xml"/>
 	 
 	<!-- 引入配置文件 -->
 	<!--  

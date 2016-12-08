@@ -245,19 +245,30 @@
 		<version>2.6.6</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/com.googlecode.xmemcached/xmemcached -->
+	<!-- simple-spring-memcached  start -->
 	<dependency>
 	    <groupId>com.googlecode.xmemcached</groupId>
 	    <artifactId>xmemcached</artifactId>
 	    <version>2.0.0</version>
 	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/com.google.code.simple-spring-memcached/xmemcached-provider -->
 	<dependency>
 	    <groupId>com.google.code.simple-spring-memcached</groupId>
 	    <artifactId>xmemcached-provider</artifactId>
 	    <version>3.5.0</version>
 	</dependency>
+	<dependency>
+      <groupId>com.google.code.simple-spring-memcached</groupId>
+      <artifactId>simple-spring-memcached</artifactId>
+      <version>3.5.0</version>
+    </dependency>
+    <!-- 这个依赖可以让memcache可以像spring-cache一样的方式注解 -->
+	<dependency>
+	    <groupId>com.google.code.simple-spring-memcached</groupId>
+	    <artifactId>spring-cache</artifactId>
+	    <version>3.5.0</version>
+	</dependency>
+	<!-- simple-spring-memcached  end-->
+	
 	
   </dependencies>
   

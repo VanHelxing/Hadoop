@@ -6,26 +6,19 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import net.rubyeye.xmemcached.MemcachedClient;
+import net.rubyeye.xmemcached.XMemcachedClient;
 import net.rubyeye.xmemcached.exception.MemcachedException;
 
-
-
 public class TestXmemcached {
-
+	
 	@Test
 	public void test() throws TimeoutException, InterruptedException, MemcachedException {
 		ApplicationContext context = new ClassPathXmlApplicationContext("memcache/spring-xmemcached.xml");
-		MemcachedClient client = (MemcachedClient) context.getBean("xmemcachedClient");
+		XMemcachedClient client = (XMemcachedClient) context.getBean("xmemcachedClient");
+		client.add("name", 100, "张四");
+		String str = client.get("name");
 		
-		//System.out.println(client);
-
-		client.add("name", 100, "张三");
-		
-	
-	//	MemCachedClient client = (MemCachedClient) context.getBean("xmemcachedClient");
-	//	System.out.println(client);
-	//	client.add("name", 100,"张三");
-	//	System.out.println(client.get("name"));
+		System.out.println("----------------" + str + "-----------------");
 	}
+
 }
