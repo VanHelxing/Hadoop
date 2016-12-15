@@ -6,5 +6,5 @@ public class Constants {
 	public static String USER_NAME = "userName";
 	public static String PASSWORD = "password";
 
-	public static String SQL_WHERE = "sqlwhere";
+	public static String SQL_WHERE = "sqlWhere";
 }

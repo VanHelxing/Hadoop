@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+}
+
+button {
+	width: 100px;
+	height: 30px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 5px;
+	background-color: #99CCFF;
+	cursor: pointer;
+}
+
+table {
+	width: 100%;
+	height: auto;
+	border: 1px solid #069;
+	overflow: scroll;
+}
+
+tr {
+	width: 100%;
+    border: 0;
+    text-align: center;
+}
+
+th {
+	width: auto;
+	height: 10px;
+	font-size: 14px;
+	padding: 3px 0px;
+    color: #fff;
+    background: #069;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0;
+    border: none;
+}
+
+td {
+	font-size: 8px;
+}
+
+#reportHead {
+	width: auto;
+	height: 70px;
+	background-color: yellow;
+}
+
+#reportContent {
+	width: auto;
+	height: 800px;
+	clear: both;
+}
+
+#reportHead > ul {
+	width: 70%;
+	height: 60px;
+	margin: 10px auto;
+	float: left;
+	list-style-type: none;
+}
+
+#reportHead > .query {
+	width: 20%;
+	height: 60px;
+	float: left;
+}
+
+#reportHead > ul > li {
+	list-style-type: none;
+	float: left;
+	padding: 5px 5px;
+}
+
+#reportHead > div > button {
+	margin: 10px 0;
+}
+
+#reportHead > ul > li > input {
+	width: 150px;
+	height: 20px;
+}
+

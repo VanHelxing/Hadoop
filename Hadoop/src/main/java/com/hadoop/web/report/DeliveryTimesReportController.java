@@ -1,11 +1,10 @@
 package com.hadoop.web.report;
 
 import java.io.UnsupportedEncodingException;
-
+import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,13 +14,20 @@ import com.hadoop.po.report.DeliveryTimesReport;
 import com.hadoop.service.report.DeliveryTimesReportService;
 
 @Controller
+@RequestMapping("DeliveryTimesReport")
 public class DeliveryTimesReportController {
 
 	@Resource
 	private DeliveryTimesReportService deliveryTimesReportService;
 	
 	
-	@RequestMapping("DeliveryTimesReport")
+	@RequestMapping("/report")
+	public String DeliveryTimesReport() {
+		return "report/DeliveryTimesReport";
+	}
+	
+	
+	@RequestMapping("/getReport")
 	@ResponseBody
 	public String getReport(@RequestParam(value = "id") String id) throws UnsupportedEncodingException{
 		
@@ -30,16 +36,14 @@ public class DeliveryTimesReportController {
 		return new String(jsonString.getBytes(), "ISO-8859-1");
 	}
 	
-	@RequestMapping("test")
+	
+	@RequestMapping("getReports")
 	@ResponseBody
-	public String test() throws UnsupportedEncodingException {
-		return new String("范海辛".getBytes(), "ISO-8859-1");
+	public String getReports(String sqlWhere) {
+		
+		List<DeliveryTimesReport> lists = deliveryTimesReportService.getReports(sqlWhere);
+		String jsonString = JSON.toJSONString(lists);
+		return jsonString;
 	}
-	
-	
-	@RequestMapping("test1")
-	public String test1(ModelMap modelMap) {
-		modelMap.addAttribute("name", "范海辛");
-		return "main";
-	}
+
 }

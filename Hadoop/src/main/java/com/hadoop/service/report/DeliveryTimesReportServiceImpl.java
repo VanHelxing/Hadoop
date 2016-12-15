@@ -27,7 +27,7 @@ public class DeliveryTimesReportServiceImpl implements DeliveryTimesReportServic
 	}
 
 	@Override
-	@Cacheable(value = "defaultCache")
+	//@Cacheable(value = "defaultCache")
 	public List<DeliveryTimesReport> getReports(String sqlWhere) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put(Constants.SQL_WHERE, sqlWhere);
